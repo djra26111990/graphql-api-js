@@ -1,12 +1,25 @@
 //index.js
-import express from 'express';
-import graphlHTTP from 'express-graphql';
-import mongoose from 'mongoose';
-import schema from './schema';
+
+const graphlHTTP = require('express-graphql')
+const express = require('express');
+const mongoose = require('mongoose');
+const schema = require('./schema');
+require('dotenv').config();
+
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
+const uri = process.env.ATLAS_URI;
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://djra26111990:xGb4e9TWy2R3dc91@clustertestdevapps0-sgvd1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority');
+
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true,  useUnifiedTopology: true }
+);
+
+const connection = mongoose.connection;
+
+connection.once('open', () => {
+  console.log(" La conexión con la base de datos MongoDB se estableció satisfactoriamente");
+})
 app.get('/', (req, res) => {
     res.json({
         msg: 'Welcome to GraphQL'
