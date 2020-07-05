@@ -1,10 +1,8 @@
 //schema.js
-import {
-    makeExecutableSchema
-} from 'graphql-tools';
-import {
-    resolvers
-} from './resolvers';
+
+import { makeExecutableSchema } from 'graphql-tools';
+import { resolvers } from '../resolvers/resolvers';
+
 const typeDefs = `
 type Product {
   _id: ID!
@@ -25,6 +23,7 @@ type Mutation {
   deleteProduct(_id: ID!) : Product
  }
 `;
+
 const schema = makeExecutableSchema({
     typeDefs,
     resolvers

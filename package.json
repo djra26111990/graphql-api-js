@@ -1,12 +1,12 @@
 {
   "name": "graph-api",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "nodemon ./index.js --exec babel-node -e js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
     "graphql": "^15.1.0",
+    "graphql-playground-middleware-express": "^1.7.18",
     "graphql-tools": "^6.0.10",
     "mongoose": "^5.9.20",
     "nodemon": "^2.0.4"
